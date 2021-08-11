@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="UTF-8"?>
+ <templates xml:space="preserve">
+     <t t-name="intro_to_owl_part_1.PartnerOrderSummary" owl="1">
+         <div>My cool new widget</div>
+     </t>
+ </templates>
