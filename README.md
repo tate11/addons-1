@@ -1,4 +1,1 @@
-facebook
-========
-
-facebook application
+odoo addons
