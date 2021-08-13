@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<odoo>
+    <template id="tifla_css" name="Themes style" inherit_id="website.assets_frontend">
+        <xpath expr="link[last()]" position="after">
+            <link rel="stylesheet" type="text/scss" href="/theme_tifla/static/src/scss/style.scss"/>
+        </xpath>
+    </template>
+    <template id="tifla_js" name="Theme Js" inherit_id="website.assets_editor" >
+        <xpath expr="script[last()]" position="after">
+            <script type="text/javascript" src="/theme_tifla/static/src/js/editor.js" />
+        </xpath>
+    </template>
+</odoo>

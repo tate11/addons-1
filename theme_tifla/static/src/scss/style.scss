@@ -1,0 +1,15 @@
+footer {
+    border-top: 10px solid theme-color('primary');
+}
+.s_testimonial {
+    border: 1px solid #EAEAEA;
+    padding: 20px;
+
+    &.s_testimonial_shadow img {
+        box-shadow: 0 2px 5px rgba(51, 51, 51, 0.4);
+    }
+    &.s_testimonial_grey_bg {
+        border: none;
+        background-color: #EAEAEA;
+    }
+}

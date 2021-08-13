@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<odoo>
+    <template id="snippet_testimonial_opt" name="Snippet Testimonial Options" inherit_id="website.snippet_options">
+        <xpath expr="//div[@data-js='Box']" position="after">
+            <div data-selector=".s_testimonial"> <!-- Options group -->
+                <div class="dropdown-submenu">
+                    <a href="#" class="dropdown-item">Your Option</a>
+                    <div class="dropdown-menu"><!-- Options list -->
+                        <a href="#" class="dropdown-item" data-select-class="opt_shadow">Shadow Images</a>
+                        <a href="#" class="dropdown-item" data-select-class="opt_grey_bg">Grey Bg</a>
+                        <a href="#" class="dropdown-item" data-select-class="">None</a>
+                    </div>
+                </div>
+            </div>
+        </xpath>
+    </template>
+</odoo>
