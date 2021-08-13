@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+  <record id="view_res_partner_tree" model="ir.ui.view">
+    <field name="name">res.partner.tree</field>
+    <field name="model">res.partner</field>
+    <field name="priority">2</field>
+    <field name="arch" type="xml">
+      <tree string="Contacts">
+        <field name="name"></field>
+        <field name="email"></field>
+        <field name="category_id"></field>
+      </tree>
+    </field>
+  </record>
+  <record id="view_res_partner_search" model="ir.ui.view">
+    <field name="name">res.partner.search</field>
+    <field name="model">res.partner</field>
+    <field name="arch" type="xml">
+      <search string="Search contacts">
+        <field name="name"></field>
+        <filter string="Has VAT number" domain="[('vat', '!=', '')]" name="has_vat"></filter>
+        <filter string="Has tags" domain="[('category_id', '!=', False)]" name="has_tags"></filter>
+        <group expand="0" string="Group By">
+          <filter string="Company" name="parent_id" context="{'group_by': 'parent_id'}"></filter>
+          <filter string="Country" name="country_id" context="{'group_by': 'country_id'}"></filter>
+          <filter string="Sales person" name="salesperson_id" context="{'group_by': 'user_id'}"></filter>
+        </group>
+      </search>
+    </field>
+  </record>
+  <record id="action_view_contacts" model="ir.actions.act_window">
+    <field name="name">Contacts</field>
+    <field name="type">ir.actions.act_window</field>
+    <field name="res_model">res.partner</field>
+    <field name="view_mode">tree,form</field>
+    <field name="search_view_id" ref="view_res_partner_search"></field>
+    <field name="context">{'search_default_parent_id': 1}</field>
+  </record>
+
+  <menuitem name="Search view tutorial"
+          id="menu_contacts_root"
+          sequence="98"
+          web_icon="static/src/img/icon.jpg"/>
+
+  <menuitem name="Contacts Search"
+          id="contacts_menu"
+          action="action_view_contacts"
+          parent="menu_contacts_root"/>
+</odoo>
