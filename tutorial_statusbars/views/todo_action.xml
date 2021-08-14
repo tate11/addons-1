@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<odoo>
+    <record id="action_todos" model="ir.actions.act_window">
+        <field name="name">Todo's</field>
+        <field name="type">ir.actions.act_window</field>
+        <field name="res_model">to.do</field>
+        <field name="view_mode">tree,form</field>
+        <field name="search_view_id" ref="to_do_view_tree"/>
+     </record>
+</odoo>

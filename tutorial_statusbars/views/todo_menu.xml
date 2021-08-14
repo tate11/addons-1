@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<odoo>
+    <menuitem id="todo_menu_root"
+            name="Tutorials: Todo"
+            sequence="98"
+            web_icon="tutorial_statusbar,static/src/img/icon.jpg"/>
+    <menuitem id="todos_main"
+            name="Todo Search"
+            action="action_todos"
+            parent="todo_menu_root" sequence="2"/>
+</odoo>

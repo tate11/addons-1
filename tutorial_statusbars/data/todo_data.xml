@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<odoo>
+    <data noupdate="1">
+        <record id="task_02" model="to.do">
+            <field name="title">Task 2</field>
+            <field name="description">This is a task</field>
+            <field name="progress_state">progress</field>
+        </record>
+        <record id="task_01" model="to.do">
+            <field name="title">Task 1</field>
+            <field name="description">This is a task</field>
+            <field name="progress_state">todo</field>
+        </record>
+    </data>
+</odoo>
