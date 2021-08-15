@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<odoo>
+    <record id="action_scheduler_demo_records" model="ir.actions.act_window">
+      <field name="name">Scheduler records</field>
+      <field name="type">ir.actions.act_window</field>
+      <field name="res_model">scheduler.demo</field>
+      <field name="search_view_id" ref="scheduler_demo_search_view"></field>
+      <field name="view_mode">tree,form</field>
+      <field name="help" type="html">
+        <p class="o_view_nocontent_smiling_face">Create a new scheduler record by clicking on 'Create'.</p>
+      </field>
+    </record>
+
+    <menuitem id="scheduler_demo_menu_root"
+              name="Tutorial Scheduler"
+              sequence="99"
+              web_icon="base,static/src/img/icon.jpg"/>
+
+    <menuitem id="menu_scheduler_demo"
+              name="Scheduler records"
+              parent="scheduler_demo_menu_root"
+              sequence="1"
+              action="action_scheduler_demo_records"/>
+</odoo>
