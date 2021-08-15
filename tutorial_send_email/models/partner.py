@@ -2,7 +2,7 @@
 from odoo import api, fields, models
 
 
-class ResPartner(models.Model):
+class Partner(models.Model):
     _inherit = 'res.partner'
 
     def action_send_birthday_email(self):
@@ -18,7 +18,7 @@ class ResPartner(models.Model):
             get_object_reference first needs the module name where the template is build and then the name
             of the email template (the record id in XML).
             """
-            template_id = ir_model_data.get_object_reference('tutorial_create_email_template', 'email_template_happy_birthday')[1]
+            template_id = ir_model_data.get_object_reference('tutorial_send_email', 'email_template_happy_birthday')[1]
         except ValueError:
             template_id = False
 

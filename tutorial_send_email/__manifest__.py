@@ -12,7 +12,7 @@
     'depends': ['contacts', 'mail'],
     "data": [
         "data/mail_template_data.xml",
-        "views/res_partner_view.xml",
+        "views/partner_view.xml",
     ],
 
 }
