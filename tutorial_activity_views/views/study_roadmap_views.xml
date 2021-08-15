@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<odoo>
+    <record id="study_roadmap_activity_view" model="ir.ui.view">
+      <field name="name">study.roadmap.activity</field>
+      <field name="model">study.roadmap</field>
+      <field name="arch" type="xml">
+        <activity string="Activities">
+          <templates>
+            <div t-name="activity-box">
+              <field name="name"></field>
+            </div>
+          </templates>
+        </activity>
+      </field>
+    </record>
+
+  <record id="study_roadmap_tree_view" model="ir.ui.view">
+    <field name="name">study.roadmap.tree</field>
+    <field name="model">study.roadmap</field>
+    <field name="priority">2</field>
+    <field name="arch" type="xml">
+      <tree string="Overtime records">
+        <field name="name"></field>
+      </tree>
+    </field>
+  </record>
+
+  <record id="study_roadmap_form_view" model="ir.ui.view">
+    <field name="name">study.roadmap.form</field>
+    <field name="model">study.roadmap</field>
+    <field name="arch" type="xml">
+      <form string="Study roadmap record">
+        <sheet>
+          <group>
+            <field name="name"></field>
+          </group>
+        </sheet>
+        <div class="oe_chatter">
+          <field name="message_ids" widget="mail_thread"></field>
+          <field name="activity_ids" widget="mail_activity"></field>
+        </div>
+      </form>
+    </field>
+  </record>
+
+</odoo>
