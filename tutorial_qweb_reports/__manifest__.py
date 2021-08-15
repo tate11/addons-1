@@ -1,20 +1,16 @@
 # __manifest__.py
 
 {
-    "name": "Tutorial Manage Assets",
-    "summary": "Tutorial Manage Assets: JS, CSS, XML.",
-    "description": "Tutorial Manage Assets: JS, CSS, XML.",
+    "name": "Tutorial QWeb reports",
+    "summary": "Inheriting and modifying QWeb reports",
+    "description": "Inheriting and modifying QWeb reports",
     "author": "Oocademy",
     "website": "http://www.oocademy.com",
-    "category": "Tutorials",
+    "category": "Tutorials/Tutorials",
     "version": "14.0.0.1",
-    "depends": [],
-    "demo": [],
-    "data": [
-        "views/assets.xml",
-        "views/menu.xml",
-    ],
+    "application": True,
+    "depends": ['sale'],
     "qweb": [
-        'static/src/xml/hello_world.xml',
+        "report/sale_order_report.xml",
     ],
 }

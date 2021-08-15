@@ -6,7 +6,7 @@
     "description": "Creating search views with filters/groupby",
     "author": "Oocademy",
     "website": "http://www.oocademy.com",
-    "category": "Techical/Tutorials",
+    "category": "Tutorials/Tutorials",
     "version": "14.0.0.1",
     "application": True,
     "depends": ['contacts'],

@@ -6,7 +6,7 @@
     "description": "Provides an example module for OWL.",
     "author": "Oocademy",
     "website": "http://www.oocademy.com",
-    "category": "Tutorials",
+    "category": "Tutorials/Tutorials",
     "version": "14.0.0.1",
     "depends": ["sale", "sale_management"],
     "demo": [],

@@ -37,7 +37,7 @@
     <field name="context">{'search_default_parent_id': 1}</field>
   </record>
 
-  <menuitem name="Search view tutorial"
+  <menuitem name="Tutorials: Search"
           id="menu_contacts_root"
           sequence="98"
           web_icon="static/src/img/icon.jpg"/>
