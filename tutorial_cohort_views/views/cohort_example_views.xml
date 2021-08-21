@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<odoo>
+    <record id="view_cohort_cohort" model="ir.ui.view">
+      <field name="name">cohort.example.cohort</field>
+      <field name="model">cohort.example</field>
+      <field name="arch" type="xml">
+        <cohort string="Cohort records" date_start="create_date" date_stop="date_closed" interval="day" mode="churn"></cohort>
+      </field>
+    </record>
+
+    <menuitem id="cohort_menu_root"
+              name="Cohort tutorial"
+              sequence="98"
+              web_icon="base,static/description/settings.png"/>
+
+    <record id="action_cohort" model="ir.actions.act_window">
+      <field name="name">Cohort records</field>
+      <field name="type">ir.actions.act_window</field>
+      <field name="res_model">cohort.example</field>
+      <field name="view_mode">tree,form,cohort</field>
+    </record>
+
+    <menuitem id="cohort_menu"
+              name="Cohort records"
+              action="action_cohort"
+              parent="cohort_menu_root"
+              sequence="1"/>
+</odoo>
