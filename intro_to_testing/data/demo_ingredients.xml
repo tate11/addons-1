@@ -1,0 +1,37 @@
+<odoo>
+     <!-- Create the main product, which will contain our recipe -->
+     <record id="demo_product_taco" model="product.template">
+         <field name="name">Taco</field>
+     </record>
+
+     <!-- Set up 3 generic food products that are going to be used for our recipe -->
+     <record id="demo_product_tortilla" model="product.product">
+         <field name="name">Tortilla</field>
+     </record>
+     <record id="demo_product_beef" model="product.product">
+         <field name="name">Beef</field>
+     </record>
+     <record id="demo_product_cheese" model="product.product">
+         <field name="name">Cheese</field>
+     </record>
+
+     <!-- Add 3 Ingredients to our Taco product to define a recipe -->
+     <record id="demo_taco_ingredient_tortilla" model="demo.recipe.ingredient">
+         <field name="product_template_id" ref="demo_product_taco"/>
+         <field name="product_id" ref="demo_product_tortilla"/>
+         <field name="amount">1</field>
+         <field name="unit_id" ref="uom.product_uom_unit"/>
+     </record>
+     <record id="demo_taco_ingredient_beef" model="demo.recipe.ingredient">
+         <field name="product_template_id" ref="demo_product_taco"/>
+         <field name="product_id" ref="demo_product_beef"/>
+         <field name="amount">50</field>
+         <field name="unit_id" ref="uom.product_uom_gram"/>
+     </record>
+     <record id="demo_taco_ingredient_cheese" model="demo.recipe.ingredient">
+         <field name="product_template_id" ref="demo_product_taco"/>
+         <field name="product_id" ref="demo_product_cheese"/>
+         <field name="amount">20</field>
+         <field name="unit_id" ref="uom.product_uom_gram"/>
+     </record>
+ </odoo>

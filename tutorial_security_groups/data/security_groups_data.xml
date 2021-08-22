@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<odoo>
+    <data noupdate="1">
+        <record id="tutorial_create_security_groups_group_manager" model="res.groups">
+            <field name="name">Manager</field>
+            <field name="category_id" ref="base.module_tutorial_security_groups"/>
+        </record>
+        <record id="tutorial_create_security_groups_group_user" model="res.groups">
+            <field name="name">User</field>
+            <field name="category_id" ref="base.module_tutorial_security_groups"/>
+        </record>
+    </data>
+</odoo>

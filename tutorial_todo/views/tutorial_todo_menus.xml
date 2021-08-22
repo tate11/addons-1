@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<odoo>
+    <menuitem id="tutorial_todo_menu_root"
+            name="Tutorial: Todo"
+            sequence="198"
+            web_icon="tutorial_todo,static/src/img/icon.png"/>
+
+    <record id="tutorial_todo_action" model="ir.actions.act_window">
+        <field name="name">Todo's</field>
+        <field name="type">ir.actions.act_window</field>
+        <field name="res_model">tutorial.todo</field>
+        <field name="view_mode">tree,form</field>
+        <field name="search_view_id" ref="tutorial_todo_tree"/>
+    </record>
+
+    <menuitem id="tutorial_todo_view"
+            name="Todo Search"
+            action="tutorial_todo_action"
+            parent="tutorial_todo_menu_root" sequence="2"/>
+</odoo>

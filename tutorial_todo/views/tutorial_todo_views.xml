@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<odoo>
+  <record id="tutorial_todo_form" model="ir.ui.view">
+    <field name="name">tutorial.todo.form</field>
+    <field name="model">tutorial.todo</field>
+    <field name="arch" type="xml">
+      <form string="Todo">
+        <header>
+          <button string="Todo" type="object" name="set_todo" attrs="{'invisible': [('progress_state', '=', 'todo')]}"/>
+          <button string="In progress" type="object" name="set_progress" attrs="{'invisible': [('progress_state', '=', 'progress')]}"/>
+          <button string="Done" type="object" name="set_done" attrs="{'invisible': [('progress_state', '=', 'done')]}"/>
+          <field name="progress_state" widget="statusbar" clickable="True"/>
+        </header>
+        <sheet>
+          <group name="main_info">
+            <field name="title"/>
+          </group>
+          <group>
+            <field name="user_id" options="{'no_open': True,'no_create': True}" domain="[('share', '=', False)]"/>
+          </group>
+          <group>
+            <field name="description"/>
+          </group>
+        </sheet>
+      </form>
+    </field>
+  </record>
+
+  <record id="tutorial_todo_tree" model="ir.ui.view">
+    <field name="name">tutorial.todo.tree</field>
+    <field name="model">tutorial.todo</field>
+    <field name="arch" type="xml">
+      <tree string="Todo List">
+        <field name="title"/>
+        <field name="description"/>
+        <field name="user_id" optional="show" widget="many2one_avatar_user"/>
+        <field name="progress_state"/>
+      </tree>
+    </field>
+  </record>
+
+</odoo>

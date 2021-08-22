@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<odoo>
+    <menuitem id="main_access_rights_menu" name="Access rights demo"></menuitem>
+    <menuitem id="menu_detail_access_admin_rights" groups="sales_team.group_sale_manager"
+          action="" parent="main_access_rights_menu"></menuitem>
+    <menuitem id="menu_detail_access_user_rights" groups="sales_team.group_sale_manager"
+          action="" parent="main_access_rights_menu"></menuitem>
+</odoo>
