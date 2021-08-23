@@ -17,4 +17,19 @@
             name="Todo Search"
             action="tutorial_todo_action"
             parent="tutorial_todo_menu_root" sequence="2"/>
+
+    <record id="action_view_contacts" model="ir.actions.act_window">
+        <field name="name">Contacts</field>
+        <field name="type">ir.actions.act_window</field>
+        <field name="res_model">res.partner</field>
+        <field name="view_mode">tree,form</field>
+        <field name="context">{'search_default_parent_id': 1}</field>
+    </record>
+
+    <menuitem id="tutorial_todo_view_contact"
+            name="Contacts"
+            action="action_view_contacts"
+            groups="tutorial_todo_group_manager"
+            parent="tutorial_todo_menu_root" sequence="3"/>
+
 </odoo>

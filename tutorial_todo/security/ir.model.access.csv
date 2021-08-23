@@ -1,2 +1,4 @@
 id,name,model_id:id,group_id:id,perm_read,perm_write,perm_create,perm_unlink
 access_tutorial_todo,tutorial_todo,model_tutorial_todo,base.group_system,1,1,1,1
+tutorial_admin,Model admin access,model_tutorial_todo,tutorial_todo_group_manager,1,1,1,1
+tutorial_user,Model user access,model_tutorial_todo,tutorial_todo_group_user,1,0,0,0

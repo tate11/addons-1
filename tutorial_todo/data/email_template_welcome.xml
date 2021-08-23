@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<odoo>
+    <data noupdate="1">
+        <record id="email_template_welcome" model="mail.template">
+          <field name="name">Contact: Welcome to project</field>
+          <field name="model_id" ref="model_tutorial_todo"></field>
+          <field name="email_from"></field>
+          <field name="partner_to"></field>
+          <field name="subject">Welcome to new project!</field>
+          <field name="body_html" type="html">
+            <div style="margin: 0px; padding: 0px;">Dear ${object.name},
+              <br/>
+              <br/>
+              <p>Welcome to new project!</p>
+              <h3>There is a new task for you</h3>
+              <p>Regards
+                <br/>${object.user_email}
+              </p>
+            </div>
+          </field>
+        </record>
+    </data>
+</odoo>

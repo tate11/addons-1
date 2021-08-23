@@ -12,8 +12,10 @@
     'depends': ['contacts'],
     "data": [
         # Data
+        "data/email_template_welcome.xml",
 
         # Security
+        "security/tutorial_todo_groups.xml",
         "security/ir.model.access.csv",
 
         # View/Action & Menu
