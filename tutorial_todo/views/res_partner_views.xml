@@ -1,0 +1,74 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <!-- Main menuitem: shows up at top app on home screen -->
+    <!--menuitem id="contacts_menu_root"
+              name="Searchpanel tutorial"
+              sequence="98"
+              web_icon="tutorial_searchpanel,static/src/img/icon.jpg"/-->
+
+    <!-- Search, tree and form view for the contacts -->
+    <record id="view_res_partner_searchpanel_search" model="ir.ui.view">
+        <field name="name">res.partner.searchpanel.search</field>
+        <field name="model">res.partner</field>
+        <field name="arch" type="xml">
+            <search string="Search contacts">
+                <!--
+                  This will be a normal search field. If you start typing you can see the name field showing
+                  under it to filter all contacts by name on your given search criteria.
+                -->
+                <field name="name"/>
+                <group expand="0" string="Group By">
+                    <!--
+                        Filters in a <group> use context to tell Odoo on which field you want to group with the
+                        'group_by' clause. You can also set domains on these fields.
+                    -->
+                    <filter string="Company" name="parent_id" context="{'group_by': 'parent_id'}"/>
+                    <filter string="Country" name="country_id" context="{'group_by': 'country_id'}"/>
+                    <filter string="Sales person" name="salesperson_id"
+                            context="{'group_by': 'user_id'}"/>
+                </group>
+              <!--
+                  Everything wrapped in a searchpanel will be shown at the left side of a view and will be automatically
+                  filterable. Odoo handles this logic for you.
+              -->
+              <searchpanel>
+                <!--
+                    You can add font awesome icons before every title by setting an icon.
+                    Simply add the field that you want to be available and Odoo will handle the rest.
+                -->
+                <field name="type" icon="fa-address-card"/>
+                <field name="user_id" icon="fa-usd"/>
+              </searchpanel>
+            </search>
+        </field>
+    </record>
+
+    <record id="view_res_partner_searchpanel_tree" model="ir.ui.view">
+        <field name="name">res.partner.tree</field>
+        <field name="model">res.partner</field>
+        <field name="priority">2</field>
+        <field name="arch" type="xml">
+            <tree string="Contacts">
+                <field name="name"/>
+            </tree>
+        </field>
+    </record>
+
+    <record id="action_view_searchpanel_contacts" model="ir.actions.act_window">
+        <field name="name">Contacts</field>
+        <field name="type">ir.actions.act_window</field>
+        <field name="res_model">res.partner</field>
+        <field name="view_mode">tree,form</field>
+        <!--
+          Links our new search view to this action (and tree view)
+        -->
+        <field name="search_view_id" ref="view_res_partner_searchpanel_search"/>
+    </record>
+
+    <!-- Default menuitem when opening the view -->
+    <!--menuitem id="contacts_searchpanel_menu"
+              name="Contacts"
+              action="action_view_searchpanel_contacts"
+              parent="contacts_menu_root"
+              sequence="1"/-->
+</odoo>

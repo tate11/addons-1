@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <record id="sale_order_map_view" model="ir.ui.view">
+        <field name="name">sale.order.map.view</field>
+        <field name="model">sale.order</field>
+        <field name="priority">999</field>
+        <field name="arch" type="xml">
+            <!--
+                Possible options that you can add on the <map> definition:
+                <map routing="routing">
+                This will show all addresses on the map with pointers that are numbered.
+                <map default_order="your_field">
+                To define the ordering of the records on the map view, this means that the numbering of the records
+                (addresses) on the map view will be numbered depending on "your_field".
+                You can find the view definition and its options at
+                https://github.com/odoo/enterprise/blob/14.0/web_map/views/web_map.rng
+            -->
+            <map res_partner="partner_id">
+                <!--
+                    Inside the <map> element you can add one or more fields that exist in your model.
+                -->
+                <field name="partner_id" string="Customer"/>
+                <field name="amount_total" string="Total amount"/>
+                <field name="currency_id" string="Currency"/>
+                <field name="contact_address_complete" string="Address"/>
+            </map>
+        </field>
+    </record>
+
+    <!--
+        Action to reference the Map view so that Odoo knows that it needs to load it.
+    -->
+    <record id="action_sale_order_map_view" model="ir.actions.act_window.view">
+        <field name="view_mode">map</field>
+        <field name="view_id" ref="sale_order_map_view"/>
+        <field name="act_window_id" ref="sale.action_quotations_with_onboarding"/>
+    </record>
+
+    <record id="tutorial_sale_order_form_view" model="ir.ui.view">
+        <field name="inherit_id" ref="sale.view_order_form"/>
+        <field name="model">sale.order</field>
+        <field name="arch" type="xml">
+            <xpath expr="//field[@name='partner_id']" position="after">
+                <!-- This will take over the address from the contact (customer) its form -->
+                <field name="contact_address_complete" invisible="1"/>
+            </xpath>
+        </field>
+    </record>
+</odoo>

@@ -13,7 +13,7 @@
     'website': "http://www.oocademy.com",
     'price': 14.95,
     'currency': 'EUR',
-    'category': 'Tutorials/All',
+    'category': 'Tutorial',
     'version': '14.0.0.0.1',
     'license': 'Other proprietary',
 

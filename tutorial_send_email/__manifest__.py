@@ -9,7 +9,7 @@
     "category": "Tutorials/Tutorials",
     "version": "14.0.0.1",
     "application": True,
-    'depends': ['contacts', 'mail'],
+    'depends': [''],
     "data": [
         "data/mail_template_data.xml",
         "views/partner_view.xml",

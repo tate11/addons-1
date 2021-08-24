@@ -9,7 +9,7 @@
     "category": "Tutorials/All",
     "version": "14.0.0.1",
     "application": True,
-    'depends': ['contacts'],
+    'depends': ['base','contacts'],
     "data": [
         # Data
         "data/email_template_welcome.xml",
@@ -21,6 +21,7 @@
         # View/Action & Menu
         "views/tutorial_todo_views.xml",
         "views/tutorial_todo_menus.xml",
+        "views/res_partner_views.xml",
     ],
 
 }

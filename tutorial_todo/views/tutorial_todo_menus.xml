@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8" ?>
 <odoo>
     <menuitem id="tutorial_todo_menu_root"
-            name="Tutorial: Todo"
+            name="Tutorials"
             sequence="198"
             web_icon="tutorial_todo,static/src/img/icon.png"/>
 
@@ -14,7 +14,7 @@
     </record>
 
     <menuitem id="tutorial_todo_view"
-            name="Todo Search"
+            name="ToDos"
             action="tutorial_todo_action"
             parent="tutorial_todo_menu_root" sequence="2"/>
 
