@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<odoo>
+    <data>
+        <!--
+            Holds the action that links to the report.
+            This will tell Odoo where you want to make the report available and clickable from the form view.
+            id: is an unique id for this XML record.
+            name: the name of the report that should be printed. It links to an XML ID and begins with the module
+                  name from where you want to load the report (in this case our own module)
+            model: links to the model where you want the report to be available (res.partner).
+            report_name/report_file: the file of the report that should be printed.
+            print_report_name: the name of the PDF that is printed by the system. You can use values from fields of the
+            record in the database.
+            binding_model_id: the model on which it should be shown in the "Print" dropdown
+            binding_type: the type of report, almost always qweb-pdf. Options: qweb-pdf, qweb-html, qweb-text.
+        -->
+
+        <record id="action_report_res_partner_details" model="ir.actions.report">
+            <field name="name">Contact details</field>
+            <field name="model">res.partner</field>
+            <field name="report_type">qweb-pdf</field>
+            <field name="report_name">tutorial_create_qweb_report.report_partner_details</field>
+            <field name="report_file">tutorial_create_qweb_report.report_partner_details</field>
+            <field name="print_report_name">'Contact details - %s' % (object.name or '')</field>
+            <field name="binding_model_id" ref="base.model_res_partner"/>
+            <field name="binding_type">report</field>
+        </record>
+    </data>
+</odoo>

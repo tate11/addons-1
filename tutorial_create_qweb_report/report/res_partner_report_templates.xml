@@ -1,0 +1,93 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <template id="report_partner_details_document">
+        <!--
+            The t-call will tell Odoo what PDF Layout you'd like. Possible options:
+            - external_layout
+            - external_layout_boxed
+            - external_layout_clean
+            - external_layout_standard
+            - internal_layout
+            - basic_layout
+            See https://github.com/odoo/odoo/blob/4ccdddcf6bd67151cfe929df2bd00f96693a58ed/addons/web/views/report_templates.xml#L246
+            for the code of all the templates.
+        -->
+        <t t-call="web.external_layout">
+            <h3 class="text-center">Contact details for
+                <!--
+                    Will show the name of the contact on the PDF.
+                    You can show any field from the contact here just by calling it with t-field and the right name.
+                 -->
+                <span t-field="doc.name"/>
+            </h3>
+            <table class="table table-sm o_main_table">
+                <tr>
+                    <td>Name:</td>
+                    <td>
+                        <span t-field="doc.name"/>
+                    </td>
+                </tr>
+                <tr>
+                    <td>Address:</td>
+                    <td>
+                        <span t-field="doc.street"/> <span t-field="doc.street2"/>
+                        <span t-field="doc.zip"/> <span t-field="doc.city"/>
+                        <span t-field="doc.country_id.name"/>
+                    </td>
+                </tr>
+                <tr>
+                    <td>E-mail:</td>
+                    <td>
+                        <span t-field="doc.email"/>
+                    </td>
+                </tr>
+                <tr>
+                    <td>Phone:</td>
+                    <td>
+                        <span t-field="doc.phone"/>
+                    </td>
+                </tr>
+                <tr>
+                    <td>Mobile:</td>
+                    <td>
+                        <span t-field="doc.mobile"/>
+                    </td>
+                </tr>
+                <tr>
+                    <td>Language:</td>
+                    <td>
+                        <span t-field="doc.lang"/>
+                    </td>
+                </tr>
+                <tr>
+                    <td>Title:</td>
+                    <td>
+                        <span t-field="doc.title"/>
+                    </td>
+                </tr>
+                <tr>
+                    <td>Function:</td>
+                    <td>
+                        <span t-field="doc.function"/>
+                    </td>
+                </tr>
+            </table>
+        </t>
+    </template>
+
+
+    <!--
+       Will go off when clicking on the title 'Contact details' from the print menu.
+       The loop over docs is if you'd wish to print multiple records at once in the report.
+       Odoo will automatically loop over them and create the report in one PDF (a page per record).
+    -->
+    <template id="report_partner_details">
+        <t t-call="web.html_container">
+            <t t-foreach="docs" t-as="doc">
+                <!-- t-lang checks the language of the contact and will print the report in the language of the contact
+                 Tip: You'll need translations in a .po file for this. See i18n/nl.po as a sample. -->
+                <t t-call="tutorial_create_qweb_report.report_partner_details_document" t-lang="doc.lang"/>
+            </t>
+        </t>
+    </template>
+</odoo>

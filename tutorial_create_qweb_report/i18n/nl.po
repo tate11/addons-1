@@ -1,0 +1,67 @@
+# Translation of Odoo Server.
+# This file contains the translation of the following modules:
+#	* tutorial_create_qweb_report
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: Odoo Server 12.0+e\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2019-04-07 17:19+0000\n"
+"PO-Revision-Date: 2019-04-07 17:19+0000\n"
+"Last-Translator: <>\n"
+"Language-Team: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: \n"
+"Plural-Forms: \n"
+
+#. module: tutorial_create_qweb_report
+#: model_terms:ir.ui.view,arch_db:tutorial_create_qweb_report.report_partner_details_document
+msgid "Address:"
+msgstr "Adres:"
+
+#. module: tutorial_create_qweb_report
+#: model:ir.actions.report,name:tutorial_create_qweb_report.action_report_res_partner_details
+msgid "Contact details"
+msgstr "Contactgegevens"
+
+#. module: tutorial_create_qweb_report
+#: model_terms:ir.ui.view,arch_db:tutorial_create_qweb_report.report_partner_details_document
+msgid "Contact details for"
+msgstr "Contactgegevens voor"
+
+#. module: tutorial_create_qweb_report
+#: model_terms:ir.ui.view,arch_db:tutorial_create_qweb_report.report_partner_details_document
+msgid "E-mail:"
+msgstr "E-mail:"
+
+#. module: tutorial_create_qweb_report
+#: model_terms:ir.ui.view,arch_db:tutorial_create_qweb_report.report_partner_details_document
+msgid "Function:"
+msgstr "Functie:"
+
+#. module: tutorial_create_qweb_report
+#: model_terms:ir.ui.view,arch_db:tutorial_create_qweb_report.report_partner_details_document
+msgid "Language:"
+msgstr "Taal:"
+
+#. module: tutorial_create_qweb_report
+#: model_terms:ir.ui.view,arch_db:tutorial_create_qweb_report.report_partner_details_document
+msgid "Mobile:"
+msgstr "Mobiel:"
+
+#. module: tutorial_create_qweb_report
+#: model_terms:ir.ui.view,arch_db:tutorial_create_qweb_report.report_partner_details_document
+msgid "Name:"
+msgstr "Naam:"
+
+#. module: tutorial_create_qweb_report
+#: model_terms:ir.ui.view,arch_db:tutorial_create_qweb_report.report_partner_details_document
+msgid "Phone:"
+msgstr "Telefoon:"
+
+#. module: tutorial_create_qweb_report
+#: model_terms:ir.ui.view,arch_db:tutorial_create_qweb_report.report_partner_details_document
+msgid "Title:"
+msgstr "Titel:"
+
