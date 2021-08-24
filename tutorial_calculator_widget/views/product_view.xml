@@ -1,0 +1,69 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <record id="tutorial_calculator_product_template_view" model="ir.ui.view">
+        <field name="inherit_id" ref="product.product_template_only_form_view"/>
+        <field name="model">product.template</field>
+        <field name="arch" type="xml">
+          <xpath expr="//field[@name='barcode']" position="after">
+            <!--
+              In order to be able to do mathematical computations on a field you simply have to apply the widget
+              'calculator'. Once you've added the widget on a field you can do mathematical formulas within this field.
+              If the field is an integer it will be rounded (so nothing behind the comma).
+              If the field is a float it will be computed with the decimal precision.
+              The user its locale and digits separator are also taken into account.
+              Options:
+              =4+4
+              => Results in 8
+              =4-4
+              => Results in 0
+              =4*4
+              => Results in 16
+              =4/4
+              => Results in 1
+              =4**4
+              => Results in 256
+              = 4^4
+              => Results in 256
+
+              You can find that implemented the calculator widget at https://github.com/odoo/odoo/pull/34538
+            -->
+            <field name="calculation" widget="calculator"/>
+            <field name="calculation_int" widget="calculator"/>
+          </xpath>
+        </field>
+    </record>
+
+  <record id="tutorial_calculator_product_product_view" model="ir.ui.view">
+        <field name="inherit_id" ref="product.product_normal_form_view"/>
+        <field name="model">product.product</field>
+        <field name="arch" type="xml">
+          <xpath expr="//field[@name='categ_id']" position="after">
+            <!--
+              In order to be able to do mathematical computations on a field you simply have to apply the widget
+              'calculator'. Once you've added the widget on a field you can do mathematical formulas within this field.
+              If the field is an integer it will be rounded (so nothing behind the comma).
+              If the field is a float it will be computed with the decimal precision.
+              The user its locale and digits separator are also taken into account.
+              Options:
+              =4+4
+              => Results in 8
+              =4-4
+              => Results in 0
+              =4*4
+              => Results in 16
+              =4/4
+              => Results in 1
+              =4**4
+              => Results in 256
+              = 4^4
+              => Results in 256
+
+              You can find that implemented the calculator widget at https://github.com/odoo/odoo/pull/34538
+            -->
+            <field name="calculation" widget="calculator"/>
+            <field name="calculation_int" widget="calculator"/>
+          </xpath>
+        </field>
+  </record>
+
+</odoo>
