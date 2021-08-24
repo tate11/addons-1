@@ -13,6 +13,12 @@
           <button name="action_send_welcome_email" string="Send welcome email" type="object"/>
         </header>
         <sheet>
+          <group>
+            <div class="oe_button_box" name="button_box">
+              <widget name="web_ribbon" text="Archived" bg_color="bg-danger" attrs="{'invisible': [('active', '=', True)]}"></widget>
+              <field name="active" invisible="1"></field>
+            </div>
+          </group>
           <group name="main_info">
             <field name="title"/>
           </group>
@@ -20,6 +26,7 @@
             <field name="assign_id" options="{'no_open': True,'no_create': True}" domain="[('share', '=', False)]"/>
             <field name="number_of_hour"/>
             <field name="number_of_day" widget="calculator"/>
+            <field name="active" />
           </group>
           <group>
             <field name="description"/>
@@ -39,8 +46,20 @@
         <field name="assign_id" optional="show" widget="many2one_avatar_user"/>
         <field name="number_of_hour"/>
         <field name="number_of_day"/>
+        <field name="active" />
         <field name="progress_state"/>
       </tree>
+    </field>
+  </record>
+
+  <record id="tutorial_todo_tree_search" model="ir.ui.view">
+    <field name="name">tutorial.todo.search</field>
+    <field name="model">tutorial.todo</field>
+    <field name="arch" type="xml">
+      <search string="Contact categories">
+        <field name="title"></field>
+        <filter string="Archived" name="inactive" domain="[('active','=', False)]"></filter>
+      </search>
     </field>
   </record>
 

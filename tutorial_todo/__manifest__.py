@@ -9,10 +9,10 @@
     "category": "Tutorials/All",
     "version": "14.0.0.1",
     "application": True,
-    'depends': ['base','contacts'],
+    'depends': ['base','contacts','sale'],
     "data": [
         # Data
-        "data/email_template_welcome.xml",
+        #"data/email_template_welcome.xml",
 
         # Security
         "security/tutorial_todo_groups.xml",

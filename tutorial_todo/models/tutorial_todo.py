@@ -15,6 +15,7 @@ class TutorialTodo(models.Model):
                                 index=True, tracking=True)
     number_of_hour = fields.Integer(string='Hours',  help='Enter number of house' )
     number_of_day = fields.Integer(string='Days', help='Enter = number of house / 8')
+    active = fields.Boolean(string='Active', default=True)
     progress_state = fields.Selection(
         [
             ('todo', 'To do'),

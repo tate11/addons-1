@@ -8,13 +8,12 @@
           <field name="partner_to"></field>
           <field name="subject">Welcome to new project!</field>
           <field name="body_html" type="html">
-            <div style="margin: 0px; padding: 0px;">Dear ${object.name},
-              <br/>
+            <div style="margin: 0px; padding: 0px;">Dear ,
               <br/>
               <p>Welcome to new project!</p>
               <h3>There is a new task for you</h3>
               <p>Regards
-                <br/>${object.user_email}
+                <br/>
               </p>
             </div>
           </field>
