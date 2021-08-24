@@ -1,0 +1,154 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+
+    <record id="res_config_settings_view_form" model="ir.ui.view">
+        <field name="name">res.config.settings.view.form.inherit.oocademy</field>
+        <!-- Inherit the default res.config.settings model from Odoo -->
+        <field name="model">res.config.settings</field>
+        <field name="priority" eval="50"/>
+        <!-- Inherit the default configuration view to add our changes into it -->
+        <field name="inherit_id" ref="base.res_config_settings_view_form"/>
+        <field name="arch" type="xml">
+            <!-- Will allow you to add a new tab to the configuration menu -->
+            <xpath expr="//div[hasclass('settings')]" position="inside">
+                <!-- Make sure that the data-string and data key are identical or strange things can happen -->
+                <div class="app_settings_block" data-string="tutorial_configuration_settings"
+                     string="Custom configuration"
+                     data-key="tutorial_configuration_settings">
+                    <!-- Title in the configuration menu -->
+                    <h2>Custom fields configuration</h2>
+                    <!-- Create one row with the username on the left and the password on the right -->
+                    <div class="row mt16 o_settings_container">
+                        <div class="col-xs-12 col-md-6 o_setting_box" id="username">
+                            <div class="o_setting_right_pane">
+                                <label string="Username" for="custom_username"/>
+                                <div class="text-muted">
+                                    Fill in an username
+                                </div>
+                                <div class="mt16">
+                                    <!-- The required="1" makes the field required in the frontend -->
+                                    <field name="custom_username" required="1"/>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="col-xs-12 col-md-6 o_setting_box" id="password">
+                            <div class="o_setting_right_pane">
+                                <label string="Password" for="custom_password"/>
+                                <div class="text-muted">
+                                    Fill in the password for the user
+                                </div>
+                                <div class="mt16">
+                                    <!-- password="True" will make sure the password is always shown in stars,
+                                    not just in plain text. -->
+                                    <field name="custom_password" password="True"/>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Create a row with just one field in the row (checkbox) -->
+                        <div class="col-12 col-lg-6 o_setting_box"
+                             title="Checking this option on allows you to use the custom settings by default on another model.">
+                            <div class="o_setting_left_pane">
+                                <field name="use_custom_setting"/>
+                            </div>
+                            <div class="o_setting_right_pane">
+                                <label for="use_custom_setting"/>
+                                <div class="text-muted">
+                                    Use this setting by default on records
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Create a row with a field for an integer value -->
+                    <div class="row mt16 o_settings_container">
+                        <div class="col-xs-12 col-md-12 o_setting_box" id="number_of_days">
+                            <div class="o_setting_right_pane">
+                                <label string="Default amount of days" for="number_of_days"/>
+                                <div class="mt16">
+                                    <field name="number_of_days"/>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Create a row for a many2one field (which is set by default in the model) -->
+                    <div class="row mt16 o_settings_container">
+                        <div class="col-xs-12 col-md-6 o_setting_box">
+                            <div class="o_setting_right_pane">
+                                <label for="mail_template_id"/>
+                                <div class="text-muted">
+                                    Default e-mail template to use
+                                </div>
+                                <div>
+                                    <label for="mail_template_id" class="o_light_label"/>
+                                    <field name="mail_template_id" class="oe_inline" options="{'no_create': True}"/>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- New title for the app configuration. This part will allow you to install another app
+                     by just checking on the checkbox and saving the settings in the frontend. -->
+                    <h2>Module configuration</h2>
+                    <div class="row mt16 o_settings_container">
+                        <div class="col-12 col-lg-6 o_setting_box" id="project">
+                            <div class="o_setting_left_pane">
+                                <!-- When this checkbox is checked on by the user the module will be installed
+                                automatically by the system -->
+                                <field name="module_project"/>
+                            </div>
+                            <div class="o_setting_right_pane">
+                                <label for="module_project"/>
+                                <div class="text-muted" id="project_module">
+                                    Use the projects module
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- and finally a row for a description (text field) -->
+                    <h2>Default description</h2>
+                    <div class="row mt16 o_settings_container">
+                        <div class="col-xs-12 col-md-12 o_setting_box" id="custom_description">
+                            <div class="o_setting_right_pane">
+                                <label string="Custom description" for="custom_description"/>
+                                <div class="mt16">
+                                    <field name="custom_description"/>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+            </xpath>
+        </field>
+    </record>
+
+    <!-- Main menuitem: shows up at top app on home screen -->
+    <menuitem id="configuration_menu_root"
+              name="Config tutorial"
+              sequence="98"
+              web_icon="tutorial_configuration_settings,static/src/img/icon.jpg"/>
+
+
+    <!-- Action that triggers the menuitem to open the settings directly -->
+    <record id="action_custom_config_settings" model="ir.actions.act_window">
+        <field name="name">Settings</field>
+        <field name="type">ir.actions.act_window</field>
+        <field name="res_model">res.config.settings</field>
+        <field name="view_id" ref="res_config_settings_view_form"/>
+        <field name="view_mode">form</field>
+        <field name="target">inline</field>
+        <field name="context">{'module' : 'tutorial_configuration_settings'}</field>
+    </record>
+
+    <!-- Menuitem for the configuration - configured with the above action to open the settings automatically. -->
+    <menuitem id="menu_custom_general_settings"
+              name="Settings"
+              parent="configuration_menu_root"
+              sequence="0"
+              action="action_custom_config_settings"
+              groups="base.group_system"/>
+</odoo>

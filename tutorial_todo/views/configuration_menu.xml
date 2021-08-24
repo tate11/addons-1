@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<odoo>
+    <menuitem id="configuration_menu_root"
+              name="Config tutorial"
+              sequence="98"
+              web_icon="base,static/description/settings.png"></menuitem>
+
+    <record id="action_custom_config_settings" model="ir.actions.act_window">
+      <field name="name">Settings</field>
+      <field name="type">ir.actions.act_window</field>
+      <field name="res_model">res.config.settings</field>
+      <field name="view_id" ref="res_config_settings_view_form"></field>
+      <field name="view_mode">form</field>
+      <field name="target">inline</field>
+      <field name="context">{'module' : 'tutorial_todo'}</field>
+    </record>
+
+    <menuitem id="menu_custom_general_settings"
+          name="Settings"
+          parent="configuration_menu_root"
+          sequence="0"
+          action="action_custom_config_settings"
+          groups="base.group_system"/>
+</odoo>

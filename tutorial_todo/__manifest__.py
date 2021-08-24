@@ -9,7 +9,7 @@
     "category": "Tutorials/All",
     "version": "14.0.0.1",
     "application": True,
-    'depends': ['base','contacts','sale'],
+    'depends': ['base','contacts','sale','mail'],
     "data": [
         # Data
         #"data/email_template_welcome.xml",
@@ -22,10 +22,13 @@
         "views/tutorial_todo_views.xml",
         "views/tutorial_todo_menus.xml",
         "views/res_partner_views.xml",
+        "views/configuration_view.xml",
+        "views/configuration_menu.xml",
 
         # Report
         "report/tutorial_todo_report.xml",
         "report/tutorial_todo_report_templates.xml",
+
     ],
 
 }
