@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<odoo>
+    <template id="tutorial_todo_report_details">
+        <t t-call="web.html_container">
+            <t t-foreach="docs" t-as="doc">
+                <t t-call="tutorial_todo.tutorial_todo_report_document" >
+                </t>
+            </t>
+        </t>
+    </template>
+    <template id="tutorial_todo_report_document">
+        <t t-call="web.external_layout">
+            <h3 class="text-center">
+                Task details for <span t-field="doc.title"></span>
+            </h3>
+            <table class="table table-sm o_main_table">
+                <tbody>
+                    <tr>
+                        <td>Title:</td>
+                        <td><span t-field="doc.title"></span></td>
+                    </tr>
+                    <tr>
+                        <td>Description:</td>
+                        <td><span t-field="doc.description"></span></td>
+                    </tr>
+                </tbody>
+            </table>
+        </t>
+    </template>
+</odoo>

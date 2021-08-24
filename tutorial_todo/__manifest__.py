@@ -22,6 +22,10 @@
         "views/tutorial_todo_views.xml",
         "views/tutorial_todo_menus.xml",
         "views/res_partner_views.xml",
+
+        # Report
+        "report/tutorial_todo_report.xml",
+        "report/tutorial_todo_report_templates.xml",
     ],
 
 }
