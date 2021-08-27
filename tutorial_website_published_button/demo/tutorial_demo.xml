@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data noupdate="1">
+        <record id="tutorial_website_published_button" model="tutorial">
+            <field name="name">Optimizing SEO in Odoo</field>
+            <field name="description">In this tutorial you will learn how to optimize SEO in Odoo</field>
+            <field name="is_published" eval="True"/>
+        </record>
+
+        <record id="tutorial_social_media_seo" model="tutorial">
+            <field name="name">SEO: custom social media previews</field>
+            <field name="description">In this tutorial you will learn how to create custom social media previews</field>
+        </record>
+    </data>
+</odoo>

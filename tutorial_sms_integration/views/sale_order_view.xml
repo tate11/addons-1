@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<odoo>
+    <!--
+        Add an action entry in the Action menu for a sale order.
+        name: the name shown in the dropdonw
+        binding_model: the model where you want to show and use this SMS action.
+        res_model: binds to the sms.composer so Odoo knows that it has to open the SMS dialog to add text for the SMS
+        view_mode: to show it in the form view
+        target: new as it should become a new dialog
+        context: default_composition_mode allows you to add a comment while default_res_id links to the current record.
+    -->
+    <act_window id="order_event_act_window_sms_composer_single"
+        name="Send SMS to customer"
+        binding_model="sale.order"
+        res_model="sms.composer"
+        view_mode="form"
+        target="new"
+        context="{
+            'default_composition_mode': 'comment',
+            'default_res_id': active_id
+        }"/>
+
+
+    <record id="sms_sale_order_form_view" model="ir.ui.view">
+        <field name="inherit_id" ref="sale.view_order_form"/>
+        <field name="model">sale.order</field>
+        <field name="arch" type="xml">
+            <xpath expr="//field[@name='partner_id']" position="after">
+                <!--
+                    Thanks to the widget="phone" and options="{'enable_sms': True}" you see the small SMS text with
+                    the icon to click on, which opens the SMS dialog.
+                -->
+                <field name="partner_mobile" widget="phone" options="{'enable_sms': True}"/>
+            </xpath>
+            <xpath expr="//header" position="inside">
+                <!--
+                    Button that will call the function 'send_sms', see models/sale_order.py.
+                    This will automatically set all values for the SMS and will send it to the customer directly.
+                -->
+                <button name="send_sms" type="object" string="Send customer SMS"/>
+            </xpath>
+        </field>
+    </record>
+</odoo>
