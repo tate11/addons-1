@@ -1,0 +1,71 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data noupdate="1">
+        <!-- Creates a contact.note record for demo purposes -->
+        <record id="contact_note_one" model="contact.note">
+            <field name="contact_id" ref="partner_james_smith"/>
+            <field name="note">Some description here</field>
+        </record>
+
+        <!-- Creates and shows an internal chat message on the contact.note record -->
+        <record id="message_contact_note_one" model="mail.message">
+            <field name="model">contact.note</field>
+            <field name="res_id" ref="contact_note_one"/>
+            <field name="body">Hi,
+                This is an internal chatter message (made by the demo data under data/contact_note_demo_data.xml).
+                This message will only be shown to users within the system, not to external people.
+            </field>
+            <field name="message_type">comment</field>
+            <field name="author_id" ref="base.partner_demo"/>
+        </record>
+
+        <!-- Creates and shows an system notification for the contact.note record -->
+        <record id="system_notification_contact_note_one" model="mail.message">
+            <field name="model">contact.note</field>
+            <field name="res_id" ref="contact_note_one"/>
+            <field name="body">Hi,
+                This is a system notification (made by the demo data under data/contact_note_demo_data.xml).
+                This message will only be shown to users within the system, not to external people.
+            </field>
+            <field name="message_type">comment</field>
+            <field name="author_id" ref="base.partner_demo"/>
+        </record>
+
+        <!-- Creates and shows a chat message on the contact.note record -->
+        <record id="chat_notification_contact_note_one" model="mail.message">
+            <field name="model">contact.note</field>
+            <field name="res_id" ref="contact_note_one"/>
+            <field name="body">Hi,
+                This is a chatter record (made by the demo data under data/contact_note_demo_data.xml).
+                This message will be visible to all followers of this record and can be emailed to all followers.
+            </field>
+            <field name="message_type">email</field>
+            <!-- Without the subtype_id it would be an internal note! -->
+            <field name="subtype_id" ref="mail.mt_comment"/>
+            <field name="author_id" ref="base.partner_admin"/>
+        </record>
+
+        <record id="contact_note_two" model="contact.note">
+            <field name="contact_id" ref="partner_jonathan_parker"/>
+            <field name="note">This customer has been very friendly and pays well.</field>
+        </record>
+
+        <!-- Creates an activity 30 days from the day this module is installed with a summary and note.
+            The attached user is "Joey Willis in this case, a demo database user. -->
+        <record id="activity_contact_note_two" model="mail.activity">
+            <field name="date_deadline" eval="datetime.now()+timedelta(days=30)"/>
+            <field name="res_model_id" ref="model_contact_note"/>
+            <field name="activity_type_id" ref="mail.mail_activity_data_call"/>
+            <field name="res_id" ref="contact_note_two"/>
+            <field name="user_id" ref="base.partner_demo"/>
+            <field name="summary">Call in 30 days</field>
+            <field name="note">Call him in 30 days as he requested, to check if he still wants to go forward
+            with the deal.</field>
+        </record>
+
+        <record id="contact_note_three" model="contact.note">
+            <field name="contact_id" ref="partner_will_dawnson"/>
+            <field name="note">Customer always wants discounts.</field>
+        </record>
+    </data>
+</odoo>

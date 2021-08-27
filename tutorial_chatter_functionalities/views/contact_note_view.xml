@@ -1,0 +1,85 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<odoo>
+
+    <!-- Form view for the contact.note model -->
+    <record id='contact_note_form_view' model='ir.ui.view'>
+        <field name="name">contact.note.form</field>
+        <field name="model">contact.note</field>
+        <field name="arch" type="xml">
+            <form string="Contact note">
+                <sheet>
+                    <group name="main_info">
+                        <field name="contact_id"/>
+                        <field name="note"/>
+                    </group>
+                    <group name="chatter_functionalities">
+                        <button string="Generate internal message" type="object" name="generate_internal_message"/>
+                        <button string="Generate message" type="object" name="generate_message"/>
+                        <button string="Generate activity" type="object" name="generate_activity"/>
+                    </group>
+                </sheet>
+
+                <div class="oe_chatter">
+                    <!--
+                        Adds the following functionalities at the top of the chatter.
+                        Allows you to add or remove followers, see who is following and what notifications you want to
+                        recieve in your inbox.
+                    -->
+                    <field name="message_follower_ids" widget="mail_followers" groups="base.group_user"/>
+                    <!-- Adds the ability to log and see activities in the chatter -->
+                    <field name="activity_ids" widget="mail_activity"/>
+                    <!--
+                        Adds the chatter functionality which shows all old messages and allows you to add new messages
+                    -->
+                    <field name="message_ids" widget="mail_thread"/>
+                </div>
+            </form>
+        </field>
+    </record>
+
+    <!-- Tree view for the contact.note model -->
+    <record id='contact_note_tree_view' model='ir.ui.view'>
+        <field name="name">contact.note.tree</field>
+        <field name="model">contact.note</field>
+        <field name="arch" type="xml">
+            <tree string="Contacts notes">
+                <field name="contact_id"/>
+                <field name="note"/>
+            </tree>
+        </field>
+    </record>
+
+    <!-- Search view for the contact.note model -->
+    <record id="contact_note_search_view" model="ir.ui.view">
+        <field name="name">contact.note.search</field>
+        <field name="model">contact.note</field>
+        <field name="arch" type="xml">
+            <search string="Contacts notes">
+                <field name="contact_id"/>
+                <field name="note"/>
+            </search>
+        </field>
+    </record>
+
+    <!-- Main menuitem: shows up at top app on home screen -->
+    <menuitem id="contact_note_menu_root" name="Chatter tutorial" sequence="98" web_icon="tutorial_chatter_functionalities,static/src/img/icon.jpg"/>
+
+
+    <!-- Action that triggers the menuitem to open the contact notes directly -->
+    <record id="action_contact_notes" model="ir.actions.act_window">
+        <field name="name">Contact notes</field>
+        <field name="type">ir.actions.act_window</field>
+        <field name="res_model">contact.note</field>
+        <field name="search_view_id" ref="contact_note_search_view"/>
+        <field name="view_mode">tree,form</field>
+        <field name="help" type="html">
+            <p class="o_view_nocontent_smiling_face">
+                Create a new contact note by clicking on 'Create'.
+            </p>
+        </field>
+    </record>
+
+    <!-- Menuitem for the contact notes - configured with the above action to open the contact notes automatically. -->
+    <menuitem id="menu_contact_notes" name="Contact notes" parent="contact_note_menu_root" sequence="1" action="action_contact_notes"/>
+
+</odoo>
