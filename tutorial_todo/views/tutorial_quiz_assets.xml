@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <!--
+      By inheriting assets_backend Odoo knows we'll want to use this JS code in the backend from Odoo.
+      All asset inheritance should always be done on the 'web' module, which holds all assets.
+     -->
+    <template id="assets_backend" name="tutorial assets" inherit_id="web.assets_backend">
+        <xpath expr="." position="inside">
+            <!-- Links to the path of the JS file in your own module. Include your module name! -->
+            <script type="text/javascript" src="/tutorial_todo/static/src/js/tutorial_quiz.js"></script>
+            <link rel="stylesheet" type="text/css" href="/tutorial_todo/static/src/css/tutorial_quiz.css"/>
+        </xpath>
+    </template>
+</odoo>

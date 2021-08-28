@@ -1,10 +1,11 @@
 <?xml version="1.0" encoding="utf-8" ?>
 <odoo>
     <menuitem id="tutorial_todo_menu_root"
-            name="Tutorials"
+            name="Tutorials *"
             sequence="198"
             web_icon="tutorial_todo,static/src/img/icon.png"/>
 
+    <!--Tutorial / Tasks -->
     <record id="tutorial_todo_action" model="ir.actions.act_window">
         <field name="name">Todo's</field>
         <field name="type">ir.actions.act_window</field>
@@ -14,10 +15,11 @@
     </record>
 
     <menuitem id="tutorial_todo_view"
-            name="ToDos"
+            name="To Do List"
             action="tutorial_todo_action"
             parent="tutorial_todo_menu_root" sequence="2"/>
 
+    <!--Tutorial / Contacts -->
     <record id="action_view_contacts" model="ir.actions.act_window">
         <field name="name">Contacts</field>
         <field name="type">ir.actions.act_window</field>

@@ -1,0 +1,8 @@
+<odoo>
+    <record id="action_my_quiz" model="ir.actions.client">
+        <field name="name">My Quiz</field>
+        <field name="tag">tutorial.quiz</field>
+    </record>
+
+    <menuitem name="Tutorial: Quiz" id="tutorial_menu_root" action="action_my_quiz"/>
+</odoo>

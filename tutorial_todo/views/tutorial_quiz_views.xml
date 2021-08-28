@@ -1,0 +1,13 @@
+<odoo>
+    <record id="action_my_quiz" model="ir.actions.client">
+        <field name="name">My Quiz</field>
+        <field name="tag">tutorial.quiz</field>
+    </record>
+
+    <!--Tutorials / Quiz -->
+    <menuitem id="tutorial_todo_view_contact"
+        name="Quiz"
+        action="action_my_quiz"
+        parent="tutorial_todo_menu_root"
+        sequence="3"/>
+</odoo>
