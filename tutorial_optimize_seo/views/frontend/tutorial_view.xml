@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <template id="tutorial_overview" name="Tutorials">
+        <t t-call="website.layout">
+            <div class="container">
+                <div class="row">
+                    <div class="col-lg-8 offset-lg-2" t-ignore="True" id="main_column">
+
+                        <div t-if="not tutorials" class="container mb64">
+                            <p class="css_editable_hidden">
+                                <h1>No tutorials yet.</h1>
+                            </p>
+                        </div>
+                        <div t-foreach="tutorials" t-as="tutorial" class="mb32" name="tutorial">
+                            <a t-attf-href="/tutorial/#{slug(tutorial)}">
+                                <h1 t-field="tutorial.name" class="mb4 o_blog_post_title"></h1>
+                            </a>
+                            <div class="text-muted">
+                                <div t-field="tutorial.preview_image" t-options="{'widget': 'image'}"
+                                     class="mb12 mt12 o_blog_post_teaser"/>
+                                <p t-esc="tutorial.description"/>
+                                <t t-if="tutorial.author_id">
+                                    Written by
+                                    <span t-field="tutorial.author_id"/>
+                                </t>
+                            </div>
+
+                            <hr/>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </t>
+    </template>
+
+    <template id="tutorial_detail_page" name="Tutorial">
+        <t t-call="website.layout">
+            <div class="container">
+                <h1 class="text-center" t-field="tutorial.name"/>
+                <p t-esc="tutorial.description"/>
+            </div>
+        </t>
+    </template>
+</odoo>
