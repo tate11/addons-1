@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data noupdate="1">
+        <!--
+        Demo records: will add multiple records in the model work.overtime to fill up the current week
+        of the grid view (as a demo).
+        -->
+        <record id="overtime_today" model="work.overtime">
+            <field name="name">Self study: learning how Grid views work</field>
+            <field name="project_id" ref="project_self_study"/>
+            <field name="task_id" ref="project_task_learn_grid_views"/>
+            <field name="date" eval="datetime.now()"/>
+            <field name="unit_amount">2.00</field>
+        </record>
+
+        <record id="overtime_today_start_grid_creation" model="work.overtime">
+            <field name="name">Self study: start creating own grid view</field>
+            <field name="project_id" ref="project_self_study"/>
+            <field name="task_id" ref="project_task_create_own_grid_views"/>
+            <field name="date" eval="datetime.now()"/>
+            <field name="unit_amount">0.50</field>
+        </record>
+
+        <record id="overtime_tommorow" model="work.overtime">
+            <field name="name">Self study: create own grid view</field>
+            <field name="project_id" ref="project_self_study"/>
+            <field name="task_id" ref="project_task_create_own_grid_views"/>
+            <field name="date" eval="datetime.now()+timedelta(days=1)"/>
+            <field name="unit_amount">2.50</field>
+        </record>
+
+        <record id="overtime_three_days" model="work.overtime">
+            <field name="name">Self study: write automated tests for grid views</field>
+            <field name="project_id" ref="project_self_study"/>
+            <field name="task_id" ref="project_task_write_tests_grid_views"/>
+            <field name="date" eval="datetime.now()+timedelta(days=3)"/>
+            <field name="unit_amount">5.00</field>
+        </record>
+    </data>
+</odoo>

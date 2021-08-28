@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data noupdate="1">
+        <record id="project_self_study" model="project.project">
+            <field name="name">Self study</field>
+        </record>
+
+        <record id="project_task_learn_grid_views" model="project.task">
+            <field name="name">Learn how to build grid views</field>
+            <field name="project_id" ref="project_self_study"/>
+        </record>
+
+        <record id="project_task_create_own_grid_views" model="project.task">
+            <field name="name">Create own grid view</field>
+            <field name="project_id" ref="project_self_study"/>
+        </record>
+
+        <record id="project_task_write_tests_grid_views" model="project.task">
+            <field name="name">Create automated tests for custom grid view</field>
+            <field name="project_id" ref="project_self_study"/>
+        </record>
+    </data>
+</odoo>
