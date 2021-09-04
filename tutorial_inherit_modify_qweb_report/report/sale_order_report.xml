@@ -1,0 +1,27 @@
+<odoo>
+    <!-- Inherit quotation report (from module sale as it was originally created by Odoo there) -->
+    <template id="report_quotation_inherit_demo" inherit_id="sale.report_saleorder_document">
+        <!-- Find the element with the class 'mb32' and add extra columns in it -->
+        <xpath expr="//div[hasclass('mb32')]" position="inside">
+            <div t-if="doc.partner_id.phone" class="col-auto mw-100 mb-2">
+                <strong>Your phone number:</strong>
+                <p class="m-0" t-field="doc.partner_id.phone"/>
+            </div>
+            <div t-if="doc.partner_id.email" class="col-auto mw-100 mb-2">
+                <strong>Your email:</strong>
+                <p class="m-0" t-field="doc.partner_id.email"/>
+            </div>
+        </xpath>
+
+        <!-- Find the div with the class 'clearfix' (which is for the totals) and add a warning under it. -->
+        <xpath expr="//div[hasclass('clearfix')]" position="after">
+            <div class="alert alert-warning">
+                If there is something wrong on this
+                <!-- Shows 'quotation' as text if it is still a quote, otherwise it'll show 'order'. -->
+                <span t-if="doc.state in ['draft','sent']">quotation</span>
+                <span t-if="doc.state not in ['draft','sent']">order</span>
+                then please reach out to your salesperson as soon as possible.
+            </div>
+        </xpath>
+    </template>
+</odoo>

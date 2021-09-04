@@ -1,0 +1,46 @@
+# Translation of Odoo Server.
+# This file contains the translation of the following modules:
+#	* tutorial_inherit_modify_qweb_report
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: Odoo Server 12.0+e\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2019-05-04 13:43+0000\n"
+"PO-Revision-Date: 2019-05-04 13:43+0000\n"
+"Last-Translator: <>\n"
+"Language-Team: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: \n"
+"Plural-Forms: \n"
+
+#. module: tutorial_inherit_modify_qweb_report
+#: model_terms:ir.ui.view,arch_db:tutorial_inherit_modify_qweb_report.report_quotation_inherit_demo
+msgid "<strong>Your email:</strong>"
+msgstr "<strong>Uw e-mail:</strong>"
+
+#. module: tutorial_inherit_modify_qweb_report
+#: model_terms:ir.ui.view,arch_db:tutorial_inherit_modify_qweb_report.report_quotation_inherit_demo
+msgid "<strong>Your phone number:</strong>"
+msgstr "<strong>Uw telefoonnummer:</strong>"
+
+#. module: tutorial_inherit_modify_qweb_report
+#: model_terms:ir.ui.view,arch_db:tutorial_inherit_modify_qweb_report.report_quotation_inherit_demo
+msgid "If there is something wrong on this"
+msgstr "Indien er iets mis is op deze"
+
+#. module: tutorial_inherit_modify_qweb_report
+#: model_terms:ir.ui.view,arch_db:tutorial_inherit_modify_qweb_report.report_quotation_inherit_demo
+msgid "order"
+msgstr "order"
+
+#. module: tutorial_inherit_modify_qweb_report
+#: model_terms:ir.ui.view,arch_db:tutorial_inherit_modify_qweb_report.report_quotation_inherit_demo
+msgid "quotation"
+msgstr "offerte"
+
+#. module: tutorial_inherit_modify_qweb_report
+#: model_terms:ir.ui.view,arch_db:tutorial_inherit_modify_qweb_report.report_quotation_inherit_demo
+msgid "then please reach out to your salesperson as soon as possible."
+msgstr "neem dan zo snel mogelijk contact op met uw verkoper."

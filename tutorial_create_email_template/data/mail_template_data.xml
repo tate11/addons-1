@@ -1,0 +1,36 @@
+<?xml version="1.0" ?>
+<odoo>
+
+    <!-- Mail template are declared in a NOUPDATE block
+         so users can freely customize/delete them -->
+    <data noupdate="1">
+        <!--Email template -->
+        <record id="email_template_happy_birthday" model="mail.template">
+            <field name="name">Contact: happy birthday</field>
+            <field name="model_id" ref="base.model_res_partner"/>
+            <field name="email_from">${object.user_id.email_formatted |safe}</field>
+            <field name="partner_to">${object.id}</field>
+            <field name="subject">Happy birthday to you!</field>
+            <field name="body_html" type="html">
+                <div style="margin: 0px; padding: 0px;">
+                    <p>Dear ${object.name},<br/><br/></p>
+
+                    <p>
+                        Happy birthday to you!<br/>
+                        It's your birthday today! Celebrate with a little extra on us.<br/><br/>
+                    </p>
+
+                    <h3>Get 25% off your online order</h3>
+                    <p>
+                        It's really easy, simply use the promotion code HAPPYBIRTHDAY on our webshop.<br/><br/>
+                    </p>
+
+                    <p>
+                        Regards${"," if object.company_id.name else ""}<br/>
+                        ${object.company_id.name or ""}
+                    </p>
+                </div>
+            </field>
+        </record>
+    </data>
+</odoo>

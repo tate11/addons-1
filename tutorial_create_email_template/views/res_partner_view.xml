@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <record id="res_partner_birthday_form_view" model="ir.ui.view">
+        <field name="inherit_id" ref="base.view_partner_form"/>
+        <field name="model">res.partner</field>
+        <field name="arch" type="xml">
+            <xpath expr="//sheet" position="before">
+                <!-- Adds a header to the contact form with a button named "Send birthday email" -->
+                <header>
+                    <button name="action_send_birthday_email" string="Send birthday email" type="object"/>
+                </header>
+            </xpath>
+            <xpath expr="//field[@name='vat']" position="after">
+                <field name="birthdate"/>
+            </xpath>
+        </field>
+    </record>
+</odoo>

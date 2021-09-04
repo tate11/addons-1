@@ -1,0 +1,78 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+
+    <!-- Search, tree and form view for the contact categories -->
+    <record id="view_contact_categories_search" model="ir.ui.view">
+        <field name="name">contact.category.search</field>
+        <field name="model">contact.category</field>
+        <field name="arch" type="xml">
+            <search string="Contact categories">
+                <field name="name"/>
+                    <!--
+                        Quick search filter to find all archived records
+                    -->
+                    <filter string="Archived" name="inactive" domain="[('active', '=', False)]"/>
+            </search>
+        </field>
+    </record>
+
+    <record id="view_contact_categories_tree" model="ir.ui.view">
+        <field name="name">contact.category.tree</field>
+        <field name="model">contact.category</field>
+        <field name="priority">2</field>
+        <field name="arch" type="xml">
+            <tree string="Contact categories">
+                <field name="name"/>
+                <field name="active"/>
+            </tree>
+        </field>
+    </record>
+
+    <record id="view_contact_categories_form" model="ir.ui.view">
+        <field name="name">contact.category.form</field>
+        <field name="model">contact.category</field>
+        <field name="arch" type="xml">
+            <form string="Contact category">
+                <sheet>
+                    <!--
+                        In order to add an archive smartbutton you will need two things:
+                        The field should have the widget="boolean_button" set and the field has to
+                        be defined within a button named "toggle_active".
+                        This is all that you need to archive/unarchive records in Odoo.
+                    -->
+                    <div class="oe_button_box" name="button_box">
+                        <widget name="web_ribbon" text="Archived" bg_color="bg-danger" attrs="{'invisible': [('active', '=', True)]}"/>
+                        <field name="active" invisible="1"/>
+                    </div>
+                    <group>
+                        <field name="name"/>
+                    </group>
+                </sheet>
+            </form>
+        </field>
+    </record>
+
+    <!-- Action to directly load the views (tree,form, grid) when opening the app -->
+    <record id="action_contact_categories" model="ir.actions.act_window">
+        <field name="name">Contact categories</field>
+        <field name="type">ir.actions.act_window</field>
+        <field name="res_model">contact.category</field>
+        <field name="view_mode">tree,form</field>
+        <field name="search_view_id" ref="view_contact_categories_search"/>
+        <field name="help" type="html">
+            <p class="o_view_nocontent_smiling_face">
+                Create a new contact category, the first step before you can add them to your contacts.
+            </p>
+            <p>
+                Once you have some records you can see/search on them in the contact form.
+                Notice how archived records are not showing up.
+            </p>
+        </field>
+    </record>
+
+    <menuitem id="contact_categories_menu"
+              name="Contact categories"
+              action="action_contact_categories"
+              parent="contacts.menu_contacts"
+              sequence="2"/>
+</odoo>

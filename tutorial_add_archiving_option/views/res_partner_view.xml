@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <!--
+        We'll add the contact_category_id field to the form so that you can see and play
+        with archiving/unarchiving categories to get how it works.
+        If a record in the model 'contact.category' is archived it will no longer show up
+        in the dropdown of our field 'contact_category_id' and neither will it show up
+        if we search on the name.
+        The Odoo framework filters out archived records by default!
+    -->
+    <record id="tutorial_res_partner_form_view" model="ir.ui.view">
+        <field name="inherit_id" ref="base.view_partner_form"/>
+        <field name="model">res.partner</field>
+        <field name="arch" type="xml">
+            <xpath expr="//field[@name='vat']" position="after">
+                <field name="contact_category_id"/>
+            </xpath>
+        </field>
+    </record>
+</odoo>

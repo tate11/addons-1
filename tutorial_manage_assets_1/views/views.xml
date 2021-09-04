@@ -1,0 +1,15 @@
+<odoo>
+    <!--
+        This Action has a tag defined. The name of this tag is to link the XML to the JavaScript.
+        Have a look at static/src/js/hello_world.js where you'll see this action being registered:
+        core.action_registry.add('hello_world.action', OurAction);
+    -->
+    <record id="action_hello_world" model="ir.actions.client">
+        <field name="name">Tutorial Demo</field>
+        <field name="tag">hello_world.action</field>
+    </record>
+
+    <menuitem name="Hello World"
+              id="hello_world_menu_root"
+              action="action_hello_world"/>
+</odoo>

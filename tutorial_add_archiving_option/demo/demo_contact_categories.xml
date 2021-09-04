@@ -1,0 +1,24 @@
+<odoo>
+    <data>
+        <!--
+            This category will be available by default as we have default=True set on the field
+            active in the model contact.category. See models/contact_category.py
+        -->
+        <record id="category_developer" model="contact.category">
+            <field name="name">Developer</field>
+        </record>
+
+        <record id="category_functional" model="contact.category">
+            <field name="name">Functional</field>
+        </record>
+
+        <!--
+            This category will NOT be available by default as we have set an eval="False" on this
+            record, which will overrule the default=True on the field definition.
+        -->
+        <record id="category_project_manager" model="contact.category">
+            <field name="name">Project manager</field>
+            <field name="active" eval="False"/>
+        </record>
+    </data>
+</odoo>

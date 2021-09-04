@@ -1,0 +1,44 @@
+# Translation of Odoo Server.
+# This file contains the translation of the following modules:
+#	* tutorial_creating_tours
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: Odoo Server 12.0+e\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2019-07-06 08:50+0000\n"
+"PO-Revision-Date: 2019-07-06 08:50+0000\n"
+"Last-Translator: <>\n"
+"Language-Team: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: \n"
+"Plural-Forms: \n"
+
+#. module: tutorial_creating_tours
+#. openerp-web
+#: code:addons/tutorial_creating_tours/static/src/js/tour.js:45
+#, python-format
+msgid "Click on save to <b>save your new contact</b>. You can use this contact throughout Odoo later on."
+msgstr "Klik op opslaan om <b>uw nieuwe contact te bewaren</b>. U kan dit contact later doorheen Odoo gebruiken."
+
+#. module: tutorial_creating_tours
+#. openerp-web
+#: code:addons/tutorial_creating_tours/static/src/js/tour.js:38
+#, python-format
+msgid "Fill in the name of the contact."
+msgstr "Vul de naam van de contactpersoon in."
+
+#. module: tutorial_creating_tours
+#. openerp-web
+#: code:addons/tutorial_creating_tours/static/src/js/tour.js:30
+#, python-format
+msgid "Let's create your first contact by clicking on create."
+msgstr "Maak uw eerste contact aan door op aanmaken te klikken."
+
+#. module: tutorial_creating_tours
+#. openerp-web
+#: code:addons/tutorial_creating_tours/static/src/js/tour.js:25
+#, python-format
+msgid "Want to manage <b>your contacts</b>? <i>It starts here.</i>"
+msgstr "Wilt u <b>uw contacten</b> beheren? <i>Het start hier.</i>"

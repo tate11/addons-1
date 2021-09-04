@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <template id="assets_backend" name="tutorial_creating_tours assets" inherit_id="web.assets_backend">
+        <xpath expr="." position="inside">
+            <!--
+                Adds our custom tour (JavaScript) to the Odoo instance.
+                Tours always have to be added in the backend assets.
+              -->
+            <script type="text/javascript" src="/tutorial_creating_tours/static/src/js/tour.js"></script>
+        </xpath>
+    </template>
+</odoo>

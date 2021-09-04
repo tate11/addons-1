@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+    This template will be loaded from /static/src/js/hello_world.js
+-->
+<templates xml:space="preserve">
+    <div t-name="hello_world.ClientAction" class="hello-world">
+        <h1 class="text-center">Hello Odoo</h1>
+        <div class="text-center">
+            <!--
+                widget.info is filled through the JavaScript code. See static/src/js/hello_world.js
+            -->
+            <t t-esc="widget.info"/>
+        </div>
+    </div>
+</templates>
