@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data noupdate="1">
+        <!-- This record will create a new scheduler (cron) in the model ir.cron -->
+        <record id="ir_cron_scheduler_demo_action" model="ir.cron">
+            <field name="name">Demo scheduler</field>
+            <!-- Links to the model scheduler.demo so that Odoo knows where the cron should be executed on -->
+            <field name="model_id" ref="model_scheduler_demo"/>
+            <!-- Tells Odoo that this cron should call a function named 'process_demo_scheduler_queue' on our model -->
+            <field name="state">code</field>
+            <field name="code">model.process_demo_scheduler_queue()</field>
+            <!-- If the eval is set to False the scheduler will not automatically run (and won't be active) -->
+            <field name="active" eval="True"/>
+            <!-- With which user you want to execute the cron job -->
+            <field name="user_id" ref="base.user_root"/>
+            <!-- Runs one time a day -->
+            <field name="interval_number">1</field>
+            <field name="interval_type">days</field>
+            <field name="numbercall">-1</field>
+        </record>
+   </data>
+</odoo>

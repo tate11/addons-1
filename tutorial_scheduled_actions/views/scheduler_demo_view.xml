@@ -1,0 +1,74 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<odoo>
+
+    <!-- Form view for the scheduler.demo model -->
+    <record id='scheduler_demo_form_view' model='ir.ui.view'>
+        <field name="name">scheduler.demo.form</field>
+        <field name="model">scheduler.demo</field>
+        <field name="arch" type="xml">
+            <form string="Scheduler record">
+                <sheet>
+                    <group name="main_info">
+                        <field name="name"/>
+                        <field name="number_of_updates"/>
+                        <field name="write_date"/>
+                    </group>
+                </sheet>
+            </form>
+        </field>
+    </record>
+
+    <!-- Tree view for the scheduler.demo model -->
+    <record id='scheduler_demo_tree_view' model='ir.ui.view'>
+        <field name="name">scheduler.demo.tree</field>
+        <field name="model">scheduler.demo</field>
+        <field name="arch" type="xml">
+            <tree string="Scheduler records">
+                <field name="name"/>
+                <field name="number_of_updates"/>
+            </tree>
+        </field>
+    </record>
+
+    <!-- Search view for the scheduler.demo model -->
+    <record id="scheduler_demo_search_view" model="ir.ui.view">
+        <field name="name">scheduler.demo.search</field>
+        <field name="model">scheduler.demo</field>
+        <field name="arch" type="xml">
+            <search string="Scheduler records">
+                <field name="name"/>
+                <field name="number_of_updates"/>
+            </search>
+        </field>
+    </record>
+
+    <!-- Main menuitem: shows up at top app on home screen -->
+    <menuitem id="scheduler_demo_menu_root"
+              name="Scheduler tutorial"
+              sequence="98"
+              web_icon="tutorial_scheduled_actions,static/src/img/icon.jpg"/>
+
+
+    <!-- Action that triggers the menuitem to open the scheduler demo records directly -->
+    <record id="action_scheduler_demo_records" model="ir.actions.act_window">
+        <field name="name">Scheduler records</field>
+        <field name="type">ir.actions.act_window</field>
+        <field name="res_model">scheduler.demo</field>
+        <field name="search_view_id" ref="scheduler_demo_search_view"/>
+        <field name="view_mode">tree,form</field>
+      <field name="help" type="html">
+            <p class="o_view_nocontent_smiling_face">
+                Create a new scheduler record by clicking on 'Create'.
+            </p>
+        </field>
+    </record>
+
+    <!-- Menuitem for the scheduler demo records - configured with the above action to open the
+    scheduler demo records automatically. -->
+    <menuitem id="menu_scheduler_demo"
+              name="Scheduler records"
+              parent="scheduler_demo_menu_root"
+              sequence="1"
+              action="action_scheduler_demo_records"/>
+
+</odoo>

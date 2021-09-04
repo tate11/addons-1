@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data noupdate="1">
+        <record id="partner_demo_belgium" model="res.partner">
+            <field name="name">A Belgian guy</field>
+            <field name="country_id" ref="base.be"/>
+            <field name="tz">Europe/Brussels</field>
+        </record>
+
+        <record id="partner_demo_belgium2" model="res.partner">
+            <field name="name">Another Belgian guy</field>
+            <field name="country_id" ref="base.be"/>
+            <field name="tz">Europe/Brussels</field>
+        </record>
+
+        <record id="partner_demo_us" model="res.partner">
+            <field name="name">An american guy</field>
+            <field name="country_id" ref="base.us"/>
+        </record>
+    </data>
+</odoo>

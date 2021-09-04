@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data noupdate="1">
+        <!-- Creates a scheduler.demo record for demo purposes -->
+        <record id="scheduler_demo_record_1" model="scheduler.demo">
+            <field name="name">Scheduler record 1</field>
+        </record>
+
+        <!-- Creates a second scheduler.demo record for demo purposes -->
+        <record id="scheduler_demo_record_2" model="scheduler.demo">
+            <field name="name">Scheduler record 2</field>
+        </record>
+    </data>
+</odoo>

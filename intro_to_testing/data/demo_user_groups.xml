@@ -12,7 +12,7 @@
 
     <record id="group_manager" model="res.groups">
       <field name="name">Manager</field>
-      <field name="implied_ids" eval="[(4, ref('model_demo_access_right.group_user'))]"></field>
+      <field name="implied_ids" eval="[(4, ref('model_demo_access_right.'))]"></field>
       <field name="users" eval="[(4, ref('base.user_root')), (4, ref('base.user_admin'))]"></field>
       <field name="category_id" ref="base.module_category_sales_sales"></field>
     </record>

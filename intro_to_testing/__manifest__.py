@@ -19,6 +19,6 @@
     ],
     "demo": [
         "data/demo_ingredients.xml",
-        "data/demo_user_groups.xml",
+        #"data/demo_user_groups.xml",
     ]
 }

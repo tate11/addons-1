@@ -1,0 +1,24 @@
+<odoo>
+    <data>
+        <record id="view_res_country_smartbutton" model="ir.ui.view">
+            <field name="name">res.country.contact.smartbutton</field>
+            <field name="model">res.country</field>
+            <field name="inherit_id" ref="base.view_country_form"/>
+            <field name="arch" type="xml">
+                <!-- The country form has no header and sheet so we have no other option to xpath on the first div -->
+                <xpath expr="//div" position="before">
+                    <!-- Tells Odoo to add the button to the top of the form view in a bar -->
+                    <div class="oe_button_box" name="button_box">
+                        <!--
+                            Adds the smart button with a font awesome icon and the string "Contacts".
+                            The field contacts_counter will be computed and will hold the amount of contacts
+                        -->
+                        <button type="object" name="action_open_contacts" class="oe_stat_button" icon="fa-users">
+                            <field name="contacts_counter" string="Contacts" widget="statinfo"/>
+                        </button>
+                    </div>
+                </xpath>
+            </field>
+        </record>
+    </data>
+</odoo>
